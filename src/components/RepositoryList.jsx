@@ -64,14 +64,12 @@ const RepositoryList = () => {
       renderItem={({ item, index, separators }) => (
         <TouchableHighlight
           key={index}
-          onPress={() => this._onPress(item)}
           onShowUnderlay={separators.highlight}
           onHideUnderlay={separators.unhighlight}>
-            <RepositoryItem item={item} />
-    </TouchableHighlight>
-    )}
-/>
-
+          <RepositoryItem item={item} />
+        </TouchableHighlight>
+      )}
+    />
   );
 };
 
