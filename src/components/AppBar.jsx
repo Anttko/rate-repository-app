@@ -12,14 +12,14 @@ const styles = StyleSheet.create({
         paddingTop: Constants.statusBarHeight,
         backgroundColor: theme.colors.appBarBackGround,
     },
-    
+
 });
 const AppBar = () => {
     return (
         <View style={styles.container}>
-                <ScrollView>
-                    <AppBarTab />
-                </ScrollView>
+            <ScrollView>
+                <AppBarTab />
+            </ScrollView>
         </View>
     );
 };
