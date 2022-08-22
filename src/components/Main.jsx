@@ -1,10 +1,11 @@
-import {  StyleSheet, View } from 'react-native';
-import AppBar from './AppBar';
-import RepositoryList from './RepositoryList';
-import Constants from 'expo-constants';
-import { Route, Routes, Navigate } from 'react-router-native';
-import SignIn from './SignIn';
-import SignOut from './SignOut';
+import { StyleSheet, View } from "react-native";
+import AppBar from "./AppBar";
+import RepositoryList from "./RepositoryList";
+import Constants from "expo-constants";
+import { Route, Routes, Navigate } from "react-router-native";
+import SignIn from "./SignIn";
+import SignOut from "./SignOut";
+import SingleRepositoryView from "./SingleRepositoryView";
 const styles = StyleSheet.create({
   container: {
     marginTop: Constants.statusBarHeight,
@@ -20,8 +21,9 @@ const Main = () => {
       <Routes>
         <Route path="/" element={<RepositoryList />} exact />
         <Route path="*" element={<Navigate to="/" replace />} />
-        <Route path="/signin" element={<SignIn />} exact/>
-        <Route path="/signout" element={<SignOut />} exact/>
+        <Route path="/signin" element={<SignIn />} exact />
+        <Route path="/signout" element={<SignOut />} exact />
+        <Route path=":id" element={<SingleRepositoryView />} />
       </Routes>
     </View>
   );
