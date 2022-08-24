@@ -5,7 +5,7 @@ import Constants from "expo-constants";
 import { Route, Routes, Navigate } from "react-router-native";
 import SignIn from "./SignIn";
 import SignOut from "./SignOut";
-import SingleRepositoryView from "./SingleRepositoryView";
+import SingleRepository from "./SingleRepository";
 const styles = StyleSheet.create({
   container: {
     marginTop: Constants.statusBarHeight,
@@ -23,7 +23,7 @@ const Main = () => {
         <Route path="*" element={<Navigate to="/" replace />} />
         <Route path="/signin" element={<SignIn />} exact />
         <Route path="/signout" element={<SignOut />} exact />
-        <Route path=":id" element={<SingleRepositoryView />} />
+        <Route path=":id" element={<SingleRepository />} />
       </Routes>
     </View>
   );

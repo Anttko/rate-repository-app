@@ -17,27 +17,6 @@ export const GET_REPOSITORIES = gql`
     }
   }
 `;
-
-// Without fragment
-export const GET_ALL = gql`
-  query {
-    repositories {
-      edges {
-        node {
-          fullName
-          id
-          language
-          description
-          ownerAvatarUrl
-          forksCount
-          stargazersCount
-          reviewCount
-          ratingAverage
-        }
-      }
-    }
-  }
-`;
 export const CHECK_USER = gql`
   query {
     me {
@@ -46,7 +25,6 @@ export const CHECK_USER = gql`
     }
   }
 `;
-
 export const GET_REPOSITORY = gql`
   ${SINGLE_REPOSITORIES_FIELDS}
   query repository($id: ID!) {

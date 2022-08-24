@@ -6,6 +6,7 @@ const useRepository = (id) => {
 
   const { data, error, loading } = useQuery(GET_REPOSITORY, {
     variables: { id },
+    fetchPolicy: 'cache-and-network',
   });
   console.log("DATA", data);
   const repository = data ? data.repository : undefined;
