@@ -108,17 +108,16 @@ const RepositoryItemStyles = StyleSheet.create({
 });
 
 export const RepositoryItemContainer = ({ item, ...props }) => {
-  const onPress = (url) => {
-    Linking.openURL(url);
-  };
-
   return (
     <View testID="repositoryItem" style={RepositoryItemStyles.container}>
       <RepositoryItemHeader item={item} />
       <RepositoryItemBody item={item} {...props} />
       {props.showButton === true ? (
         <View style={RepositoryItemStyles.buttonContainer}>
-          <Button title="open in github" onPress={onPress(item.url)}></Button>
+          <Button
+            title="open in github"
+            onPress={() => Linking.openURL(item.url)}
+          />
         </View>
       ) : null}
     </View>
