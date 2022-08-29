@@ -6,6 +6,8 @@ import { Route, Routes, Navigate } from "react-router-native";
 import SignIn from "./SignIn";
 import SignOut from "./SignOut";
 import SingleRepository from "./SingleRepository";
+import ReviewForm from "./ReviewForm/index";
+import SignUpForm from "./SignUpForm";
 const styles = StyleSheet.create({
   container: {
     marginTop: Constants.statusBarHeight,
@@ -24,6 +26,8 @@ const Main = () => {
         <Route path="/signin" element={<SignIn />} exact />
         <Route path="/signout" element={<SignOut />} exact />
         <Route path=":id" element={<SingleRepository />} />
+        <Route path="/createreview" element={<ReviewForm />} />
+        <Route path="/signup" element={<SignUpForm />} />
       </Routes>
     </View>
   );

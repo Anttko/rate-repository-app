@@ -1,11 +1,13 @@
 import { FlatList, View, StyleSheet, TouchableHighlight } from "react-native";
 import RepositoryItem from "./RepositoryItem";
 import useRepositories from "../hooks/useRepositories";
-
+import theme from '../theme'
 
 const styles = StyleSheet.create({
   separator: {
-    height: 10,
+    height: 8,
+    borderRadius: 1,
+    backgroundColor: theme.colors.greySeparator,
   },
 });
 

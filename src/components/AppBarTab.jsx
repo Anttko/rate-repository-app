@@ -27,15 +27,30 @@ const AppBarTabItem = ({ linkTo, text, color }) => {
 };
 const AppBarTab = () => {
   let checkIfLoggedIn = useQuery(CHECK_USER);
-  console.log('loggedIn', checkIfLoggedIn.data)
+  console.log("loggedIn", checkIfLoggedIn.data);
   return (
     <View style={styles.container}>
       <AppBarTabItem linkTo={"/"} color={"white"} text={"Repositories"} />
 
-      {checkIfLoggedIn.data?.me === undefined || checkIfLoggedIn?.data.me === null ? (
-        <AppBarTabItem linkTo={"/signin"} color={"white"} text={"Sign In"} />
+      {checkIfLoggedIn.data?.me === undefined ||
+      checkIfLoggedIn?.data.me === null ? (
+        <>
+          <AppBarTabItem linkTo={"/signin"} color={"white"} text={"Sign In"} />
+          <AppBarTabItem linkTo={"/signup"} color={"white"} text={"Sign Up"} />
+        </>
       ) : (
-        <AppBarTabItem linkTo={"/signout"} color={"white"} text={"Sign out"} />
+        <>
+          <AppBarTabItem
+            linkTo={"/createreview"}
+            color={"white"}
+            text={"Create review"}
+          />
+          <AppBarTabItem
+            linkTo={"/signout"}
+            color={"white"}
+            text={"Sign out"}
+          />
+        </>
       )}
     </View>
   );

@@ -4,7 +4,6 @@ import {
   SINGLE_REPOSITORIES_FIELDS,
 } from "./fragments";
 
-//With fragment
 export const GET_REPOSITORIES = gql`
   ${CORE_REPOSITORIES_FIELDS}
   query {
