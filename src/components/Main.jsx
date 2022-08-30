@@ -8,6 +8,7 @@ import SignOut from "./SignOut";
 import SingleRepository from "./SingleRepository";
 import ReviewForm from "./ReviewForm/index";
 import SignUpForm from "./SignUpForm";
+
 const styles = StyleSheet.create({
   container: {
     marginTop: Constants.statusBarHeight,

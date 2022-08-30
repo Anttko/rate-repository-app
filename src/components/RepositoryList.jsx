@@ -1,8 +1,8 @@
 import { FlatList, View, StyleSheet, TouchableHighlight } from "react-native";
 import RepositoryItem from "./RepositoryItem";
 import useRepositories from "../hooks/useRepositories";
-import theme from '../theme'
-
+import theme from "../theme";
+import SortRepositories from "./SortRepositories";
 const styles = StyleSheet.create({
   separator: {
     height: 8,
@@ -20,6 +20,7 @@ export const RepositoryListContainer = ({ repositories }) => {
 
   return (
     <FlatList
+      ListHeaderComponent={<SortRepositories />}
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
       renderItem={({ item, index, separators }) => (
