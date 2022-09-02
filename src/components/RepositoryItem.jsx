@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-native";
 import * as Linking from "expo-linking";
 import theme from "../theme";
 import Text from "./Text";
-
+import * as React from "react";
 const RepositoryItemHeaderStyles = StyleSheet.create({
   container: {
     marginTop: 5,

@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 
 const SortRepositoriesContainer = ({ setSorting }) => {
   const menuItems = [
-    { name: "Select an item..." },
+    { name: "Select an item...", value: "" },
     {
       name: "Lastest repostitories",
       value: "CREATED_AT_DESC",
@@ -30,11 +30,12 @@ const SortRepositoriesContainer = ({ setSorting }) => {
       value: "RATING_AVERAGE_ASC",
     },
   ];
-  const [selectedSorting, setselectedSorting] = useState(menuItems[1].name);
+  const [selectedSorting, setselectedSorting] = useState(menuItems[1].value);
 
   useEffect(() => {
     setSorting(selectedSorting);
   });
+
   return (
     <Picker
       style={styles.container}
@@ -47,7 +48,7 @@ const SortRepositoriesContainer = ({ setSorting }) => {
             <Picker.Item
               style={styles.menuItemHeader}
               label={item.name}
-              value={index}
+              value={item.value}
               key={index}
               enabled={false} // first menu item to be disabled so it can't be clicked
             />

@@ -2,6 +2,7 @@ import SortRepositoriesContainer from "./SortRepositoriesContainer";
 import { StyleSheet, View } from "react-native";
 import { Searchbar } from "react-native-paper";
 import theme from "../../theme";
+import { useDebouncedCallback } from "use-debounce";
 
 const styles = StyleSheet.create({
   container: {
@@ -15,7 +16,11 @@ const styles = StyleSheet.create({
   },
 });
 const SortRepositories = ({ setSorting, setSearchValue }) => {
-  const onChangeSearch = (query) => setSearchValue(query);
+  const debounced = useDebouncedCallback((value) => {
+    setSearchValue(value);
+  }, 500);
+
+  const onChangeSearch = (query) => debounced(query);
 
   return (
     <View style={styles.container}>
