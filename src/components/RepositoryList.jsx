@@ -15,13 +15,22 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-export const RepositoryListContainer = ({ repositories, setSorting }) => {
+export const RepositoryListContainer = ({
+  repositories,
+  setSorting,
+  setSearchValue,
+}) => {
   const repositoryNodes = repositories
     ? repositories.edges.map((edge) => edge.node)
     : [];
   return (
     <FlatList
-      ListHeaderComponent={<SortRepositories setSorting={setSorting}/>}
+      ListHeaderComponent={
+        <SortRepositories
+          setSorting={setSorting}
+          setSearchValue={setSearchValue}
+        />
+      }
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
       renderItem={({ item, index, separators }) => (
@@ -39,12 +48,15 @@ export const RepositoryListContainer = ({ repositories, setSorting }) => {
 
 const RepositoryList = () => {
   const [sorting, setSorting] = useState();
-  const { repositories } = useRepositories(sorting);
+  const [searchValue, setSearchValue] = useState();
+
+  const { repositories } = useRepositories(sorting, searchValue);
   console.log(repositories);
   return (
     <RepositoryListContainer
       repositories={repositories}
       setSorting={setSorting}
+      setSearchValue={setSearchValue}
     />
   );
 };
