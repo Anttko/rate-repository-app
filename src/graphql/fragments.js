@@ -28,19 +28,5 @@ export const SINGLE_REPOSITORIES_FIELDS = gql`
     ownerAvatarUrl
     name
     url
-    reviews {
-      edges {
-        node {
-          id
-          text
-          rating
-          createdAt
-          user {
-            id
-            username
-          }
-        }
-      }
-    }
   }
 `;

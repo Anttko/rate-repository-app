@@ -67,7 +67,6 @@ const ReviewItem = ({ review }) => {
   const formattedDate = format(parseISO(review.createdAt), "dd.MM.yyyy");
 
   return (
-    
     <View style={reviewItemStyles.container}>
       <View style={reviewItemStyles.headerContainer}>
         <View
@@ -102,15 +101,26 @@ const ItemSeparator = () => <View style={styles.separator} />;
 
 const SingleRepository = () => {
   const { id } = useParams();
-  const { repository } = useRepository(id);
+
+  const { repository, fetchMore } = useRepository({
+    id,
+    first: 3,
+  });
+
+  const onEndReach = () => {
+    fetchMore();
+    console.log("You have reached the end of the list");
+  };
+
   if (repository === undefined) return <Text>loading...</Text>;
   const repositoryNodes = repository
     ? repository.reviews.edges.map((edge) => edge.node)
     : [];
-
   return (
     <FlatList
       data={repositoryNodes}
+      onEndReached={onEndReach}
+      onEndReachedThreshold={0.5}
       renderItem={({ item }) => <ReviewItem review={item} />}
       keyExtractor={({ id }) => id}
       ListHeaderComponent={() => <RepositoryInfo repository={repository} />}
