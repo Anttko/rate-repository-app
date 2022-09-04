@@ -30,3 +30,29 @@ export const SINGLE_REPOSITORIES_FIELDS = gql`
     url
   }
 `;
+
+export const BASE_REVIEW_FIELDS = gql`
+  fragment BaseReviewFields on Review {
+    id
+    text
+    rating
+    createdAt
+    repository {
+      name
+      fullName
+      url
+    }
+    user {
+      id
+      username
+    }
+  }
+`;
+
+export const BASE_PAGEINFO_FIELDS = gql`
+  fragment BasePageInfoFelds on PageInfo {
+    endCursor
+    startCursor
+    hasNextPage
+  }
+`;

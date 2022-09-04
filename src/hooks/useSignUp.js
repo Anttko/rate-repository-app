@@ -11,8 +11,7 @@ const useSignUp = () => {
       username: signUpItem.username,
       password: signUpItem.password,
     };
-    const { data } = await mutate({ variables: { user } });
-    console.log(data);
+    await mutate({ variables: { user } });
     nav(`/`);
   };
   return [signUp, result];

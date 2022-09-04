@@ -9,7 +9,7 @@ const useRepository = (variables) => {
       fetchPolicy: "cache-and-network",
     }
   );
-    console.log('single.', variables)
+
   const handleFetchMore = () => {
     const canFetchMore =
       !loading && data?.repository.reviews.pageInfo.hasNextPage;
@@ -25,7 +25,6 @@ const useRepository = (variables) => {
     });
   };
 
-  console.log("DATA", data);
   const repository = data ? data.repository : undefined;
 
   return { repository, fetchMore: handleFetchMore, loading, error, ...result };

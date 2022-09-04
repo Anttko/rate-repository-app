@@ -7,12 +7,10 @@ const useCreateReview = () => {
   const [mutate, result] = useMutation(CREATE_REVIEW);
 
   const createReview = async ({ reviewItem }) => {
-    console.log("reviewITem:", reviewItem);
     const review = { ...reviewItem, rating: parseInt(reviewItem.rating) };
-    console.log("parse int review item:", { review });
+
     const { data } = await mutate({ variables: { review } });
 
-    console.log("review data usereview", data);
     nav(`/${data.createReview.repositoryId}`);
   };
 

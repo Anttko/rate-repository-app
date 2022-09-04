@@ -50,6 +50,11 @@ const AppBarTab = () => {
             color={"white"}
             text={"Sign out"}
           />
+          <AppBarTabItem
+            linkTo={"/myreviews"}
+            color={"white"}
+            text={"My reviews"}
+          />
         </>
       )}
     </View>

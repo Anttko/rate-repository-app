@@ -8,7 +8,7 @@ import SignOut from "./SignOut";
 import SingleRepository from "./SingleRepository";
 import ReviewForm from "./ReviewForm/index";
 import SignUpForm from "./SignUpForm";
-
+import MyReviews from "./MyReviews";
 const styles = StyleSheet.create({
   container: {
     marginTop: Constants.statusBarHeight,
@@ -29,6 +29,7 @@ const Main = () => {
         <Route path=":id" element={<SingleRepository />} />
         <Route path="/createreview" element={<ReviewForm />} />
         <Route path="/signup" element={<SignUpForm />} />
+        <Route path="/myreviews" element={<MyReviews />} exact/>
       </Routes>
     </View>
   );
